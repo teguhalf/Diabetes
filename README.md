@@ -40,17 +40,16 @@ Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
 
 
 ### EDA (Exploratory Data Analysis)
-![image](https://github.com/user-attachments/assets/00f11648-5fff-4089-85a4-f4d6b038679d)
-- Memahami informasi tipe data, nama kolom, jumlah baris, dan kolom dataset.
-![image](https://github.com/user-attachments/assets/4e17d26e-fb49-4451-af40-d1badd52644a)
-- Memahami deskripsi statistik dataset.
-![image](https://github.com/user-attachments/assets/83a4ebb0-be76-4704-bd93-76b9f0eaaba7)
-- Visualisasi Diagram Histogram untuk mengetahui distribusi data tiap kolom.
-![image](https://github.com/user-attachments/assets/1a08c6b4-a95c-4f47-8f6d-76eea6e6b431)
-- Visualisasi Diagram Pie untuk mengetahui distribusi rentang usia (remaja, dewasa, tua).
-![image](https://github.com/user-attachments/assets/90d8e618-fb01-4120-871e-c46c90a18043)
-- Visualisasi Diagram Pie untuk mengetahui distribusi kategori tekanan darah (rendah, normal, tinggi).
-
+- Memahami informasi tipe data, nama kolom, jumlah baris, dan kolom dataset.<br>
+![image](https://github.com/user-attachments/assets/00f11648-5fff-4089-85a4-f4d6b038679d)<br>
+- Memahami deskripsi statistik dataset. <br>
+![image](https://github.com/user-attachments/assets/4e17d26e-fb49-4451-af40-d1badd52644a)<br>
+- Visualisasi Diagram Histogram untuk mengetahui distribusi data tiap kolom. <br>
+![image](https://github.com/user-attachments/assets/83a4ebb0-be76-4704-bd93-76b9f0eaaba7)<br>
+- Visualisasi Diagram Pie untuk mengetahui distribusi rentang usia (remaja, dewasa, tua).<br>
+![image](https://github.com/user-attachments/assets/1a08c6b4-a95c-4f47-8f6d-76eea6e6b431)<br>
+- Visualisasi Diagram Pie untuk mengetahui distribusi kategori tekanan darah (rendah, normal, tinggi).<br>
+![image](https://github.com/user-attachments/assets/90d8e618-fb01-4120-871e-c46c90a18043)<br>
 ## Data Preparation
 - Cleaning Data:
   - Mengubah nilai 0 pada beberapa kolom (‘Glucose’, ‘BloodPressure’, ‘SkinThickness’, ‘Insulin’, dan ‘BMI’) dengan nilai mean. Tujuannya yaitu merasionalkan data. Karena manusia yang masih hidup tidak mungkin memiliki nilai 0 pada kolom yang sudah disebutkan.
@@ -68,9 +67,9 @@ Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
   - Optimizer: Metode yang digunakan untuk menyesuaikan weight dan bias dengan tujuan untuk mengurangi loss function.
   - Learning Rate: Nilai numerik yang mengontrol seberapa besar penyesuaian weight network sebagai respons terhadap gradien loss function.
 ### Flow
-![image](https://github.com/user-attachments/assets/501f5d24-ccc5-4055-a11d-76ce70871acd)
 - Sebelum merancang model, kita perlu melakukan hyperparameter tuning. Meskipun tidak wajib, namun hyperparameter tuning membantu kita untuk menemukan parameter terbaik dengan melakukan iterasi (epoch) dengan parameter yang berbeda-beda. Dalam penelitian ini, digunakan library keras_tuner untuk membantu melakukan tuning.
-![image](https://github.com/user-attachments/assets/60bc0f22-57a7-4188-8fce-4f3c5a29f07e)
+![image](https://github.com/user-attachments/assets/501f5d24-ccc5-4055-a11d-76ce70871acd)<br>
+![image](https://github.com/user-attachments/assets/60bc0f22-57a7-4188-8fce-4f3c5a29f07e)<br>
 - Setelah mendapatkan hyperparameter dari tuning, tentunya kita akan membuat model CNN untuk memprediksi diabetes. Gunakan callbacks untuk melakukan early stopping (pengehentian awal) dan checkpoint (menyimpan model terbaik ke dalam file dengan ekstensi h5).
 ![image](https://github.com/user-attachments/assets/12988948-9b2f-46c5-9692-89fbbe52f592)
 - Lakukan iterasi setelah membangun model CNN. Iterasi yang diterapkan pada model yaitu 20 kali.
@@ -92,6 +91,7 @@ Metrik yang digunakan untuk evaluasi adalah accuracy, loss function, dan confusi
   ![image](https://github.com/user-attachments/assets/0255bd73-44af-4126-ae66-12c00d440c34)
   - Support: Jumlah aktual dari kemunculan setiap kelas dalam dataset yang sedang dievaluasi
 ### Hasil Tes
+- GRAFIK HASIL ITERASI
 ![image](https://github.com/user-attachments/assets/5adc0c04-135d-4455-a8cd-16e9c3f6c9ad)
 - Grafik Kiri: Akurasi Selama Pelatihan
   - Training Accuracy meningkat secara bertahap dari ~0.60 ke ~0.77.
