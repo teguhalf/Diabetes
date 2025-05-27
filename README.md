@@ -1,10 +1,10 @@
 # Laporan Proyek Machine Learning - Muhammad Teguh Alfian
 
-## Domain Proyek: Prediksi Diabetes Menggunakan CNN
+## Domain Proyek: Prediksi Diabetes Menggunakan Multi-Layer Perceptron
 
 Diabetes merupakan salah satu penyakit kronis yang memiliki penderita sangat banyak di seluruh dunia. Menurut World Health Organization (WHO), jumlah penderita diabetes terus meningkat setiap tahunnya, dengan estimasi mencapai ratusan juta orang. Penyakit ini tidak hanya menurunkan kualitas hidup penderitanya, tetapi juga dapat memicu komplikasi serius seperti gagal ginjal, penyakit jantung, hingga amputasi. Oleh karena itu, deteksi dini terhadap diabetes sangat penting agar penanganan medis dapat dilakukan sedini mungkin.
 
-Di era digital dan kemajuan teknologi saat ini, pemanfaatan kecerdasan buatan (Artificial Intelligence/AI), khususnya deep learning, menjadi pendekatan yang menjanjikan dalam bidang kesehatan. Salah satu model deep learning yang telah terbukti efektif dalam pengolahan data visual dan spasial adalah Convolutional Neural Network (CNN). Meskipun CNN umumnya digunakan dalam pengenalan gambar, kemampuannya dalam mengekstraksi fitur yang kompleks juga dapat dimanfaatkan dalam prediksi penyakit, termasuk diabetes, terutama jika data telah diubah ke bentuk yang sesuai, seperti citra atau representasi spasial dari data tabular. Tujuan penelitian ini adalah untuk implementasi CNN dalam prediksi penyakit diabetes berdasarkan data yang sudah dipersiapkan.
+Di era digital dan kemajuan teknologi saat ini, pemanfaatan kecerdasan buatan (Artificial Intelligence/AI), khususnya deep learning, menjadi pendekatan yang menjanjikan dalam bidang kesehatan. Salah satu model deep learning yang telah terbukti efektif dalam pengolahan data adalah Multi-Layer Perceptron (MLP). Meskipun MLP umumnya digunakan dalam berbagai aplikasi klasifikasi dan regresi, kemampuannya dalam mengekstraksi pola dan hubungan kompleks dari data tabular juga dapat dimanfaatkan dalam prediksi penyakit, termasuk diabetes. Tujuan penelitian ini adalah untuk implementasi MLP dalam prediksi penyakit diabetes berdasarkan data yang sudah dipersiapkan.
 
 ## Business Understanding
 
@@ -14,12 +14,12 @@ Di era digital dan kemajuan teknologi saat ini, pemanfaatan kecerdasan buatan (A
 - Metode konvensional dalam diagnosis dini diabetes masih memiliki keterbatasan dalam hal akurasi, kecepatan, dan skalabilitas.
 
 ### Goals
-- Membangun model berbasis deep learning Convolutional Neural Network (CNN), untuk membantu proses deteksi dini diabetes secara lebih akurat dan efisien.
-- Mengonversi data tabular terkait diabetes menjadi bentuk visual atau spasial yang dapat diproses oleh CNN, sehingga memungkinkan ekstraksi fitur yang lebih kompleks.
-- Mengoptimalkan model CNN untuk meningkatkan performa diagnosis dalam hal akurasi, sensitivitas, dan waktu prediksi.
+- Membangun model berbasis deep learning Multi-Layer Perceptron, untuk membantu proses deteksi dini diabetes secara lebih akurat dan efisien.
+- Mengonversi data tabular terkait diabetes menjadi bentuk visual atau spasial yang dapat diproses oleh Multi-Layer Perceptron, sehingga memungkinkan ekstraksi fitur yang lebih kompleks.
+- Mengoptimalkan model deep learning Multi-Layer Perceptron untuk meningkatkan performa diagnosis dalam hal akurasi, sensitivitas, dan waktu prediksi.
 
 ### Solution statements
-- Menggunakan CNN Multilayer Perceptron untuk prediksi diabetes.
+- Menggunakan CNN Multi-layer Perceptron untuk prediksi diabetes.
 - Evaluasi performa model dengan accuracy, loss, dan confusion matrix
 
 ## Data Understanding
@@ -58,21 +58,24 @@ Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
   - Data Splitting. Dataset dibagi menjadi tiga bagian yaitu data train, data validation, dan data test. Pada baris kode pertama, dapat dilihat bahwa data test mengambil 30% dari jumlah dataset,  sedangkan sisanya yaitu 70% akan masuk ke dalam variabel ‘temp’. Selanjutnya, pada baris kode kedua akan dibagi lagi menjadi data train dan data validation dari variabel ‘temp’. Proporsi pembagiannya adalah 30% dari 70% dialokasikan ke data validation, 70% dari 70% akan dialokasikan ke data train. Sehingga dapat disimpulkan bahwa, proporsi pembagian data yaitu 49% untuk data training, 21% untuk data validation, dan 30% untuk data testing. 
 
 ## Modeling
-### Model
-- Convolutional Neural Network: salah satu jenis arsitektur Deep Learning yang dapat digunakan untuk melakukan tugas prediksi. CNN dapat dibangun dengan menggunakan modul TensorFlow. Modul ini menyediakan API yang kuat dan fleksibel untuk membangun dan melatih model Deep Learning.
+### Definisi Model
+- Multi-Layer Perceptron (MLP): jenis arsitektur CNN yang belajar dari contoh. Proses kerjanya dimulai dengan feed forward, di mana data mengalir dari lapisan input, setiap neuron di lapisan berikutnya menerima input terbobot yang kemudian dilewatkan melalui fungsi aktivasi non-linear. Output dari fungsi aktivasi ini menjadi input untuk lapisan selanjutnya, hingga mencapai lapisan output yang menghasilkan prediksi akhir. Setelah prediksi didapatkan, model menghitung error menggunakan fungsi loss dengan membandingkan prediksi dengan nilai sebenarnya. Error ini kemudian digunakan dalam proses back propagation, di mana gradien loss terhadap setiap bobot dan bias dihitung. Akhirnya, optimizer menggunakan gradien ini dan learning rate untuk menyesuaikan bobot dan bias model, bertujuan untuk meminimalkan loss. Seluruh siklus ini diulang berkali-kali selama pelatihan hingga model mencapai kinerja yang diinginkan. Di dalam MLP terdapat:
   - Input Layer: Menerima dan menahan data masukan yang akan diproses oleh jaringan. 
   - Dropout Layer: Teknik regularisasi yang bekerja dengan mengabaikan secara acak sejumlah neuron selama training pad setiap iterasi.
   - Hidden Layer: Melakukan sebagian besar komputasi dalam neural network.
   - Output Layer: Menyediakan tempat keluaran akhir dari neural network.
   - Optimizer: Metode yang digunakan untuk menyesuaikan weight dan bias dengan tujuan untuk mengurangi loss function.
   - Learning Rate: Nilai numerik yang mengontrol seberapa besar penyesuaian weight network sebagai respons terhadap gradien loss function.
+  - Fungsi Aktivasi: Mengubah output linear dari neuron menjadi output non-linear, yang memungkinkan neural network belajar dan memetakan hubungan kompleks antara input dan output. 
 ### Flow
 - Sebelum merancang model, kita perlu melakukan hyperparameter tuning. Meskipun tidak wajib, namun hyperparameter tuning membantu kita untuk menemukan parameter terbaik dengan melakukan iterasi (epoch) dengan parameter yang berbeda-beda. Dalam penelitian ini, digunakan library keras_tuner untuk membantu melakukan tuning.
 ![image](https://github.com/user-attachments/assets/501f5d24-ccc5-4055-a11d-76ce70871acd)<br>
 ![image](https://github.com/user-attachments/assets/60bc0f22-57a7-4188-8fce-4f3c5a29f07e)<br>
-- Setelah mendapatkan hyperparameter dari tuning, tentunya kita akan membuat model CNN untuk memprediksi diabetes. Gunakan callbacks untuk melakukan early stopping (pengehentian awal) dan checkpoint (menyimpan model terbaik ke dalam file dengan ekstensi h5).
+- Setelah mendapatkan hyperparameter dari tuning, tentunya kita akan membuat model MLP untuk memprediksi diabetes.
+- Model ini memiliki arsitektur dengan input layer yang terdiri dari 32 neuron dan menggunakan fungsi aktivasi ReLU, diikuti oleh dua dropout layer yang masing-masing memiliki dropout rate sebesar 0.2 untuk mencegah overfitting. Setelah itu, terdapat hidden layer dengan 16 neuron yang juga menggunakan fungsi aktivasi ReLU (mengoutputkan nilai input jika positif, dan nol jika negatif). Output layer terdiri dari 1 neuron dengan fungsi aktivasi sigmoid (mengubah nilai input menjadi nilai antara 0 dan 1), yang sesuai untuk tugas klasifikasi biner. Model ini dikompilasi menggunakan optimizer Adam dengan learning rate sebesar 0.001 untuk proses pembelajaran yang efisien dan stabil.
+- Gunakan callbacks untuk melakukan early stopping (pengehentian awal) dan checkpoint (menyimpan model terbaik ke dalam file dengan ekstensi h5).
 ![image](https://github.com/user-attachments/assets/12988948-9b2f-46c5-9692-89fbbe52f592)
-- Lakukan iterasi setelah membangun model CNN. Iterasi yang diterapkan pada model yaitu 20 kali.
+- Lakukan iterasi setelah membangun model MLP. Iterasi yang diterapkan pada model yaitu 20 kali.
 ![image](https://github.com/user-attachments/assets/b6f49d09-d030-46e4-8e39-f4e36d59a9bb)
 - Setelah iterasi selesai, dapat diketahui seberapa baik performa model dengan accuracy dan loss. Tujuan dari accuracy adalah untuk mengukur kebenaran prediksi model dan loss untuk mengukur kesalahan yang dibuat oleh model.
 ![image](https://github.com/user-attachments/assets/981ec5f5-a6b2-43e8-96b2-3bc686a33aef)
